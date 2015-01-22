@@ -1,0 +1,16 @@
+&nbsp;&nbsp;&nbsp;&nbsp;先说servlet吧,servlet是运行在服务器端的应用小程序.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;当一个请求来临时，web容器就想根据请求的路径，去web.xml中的servlet去匹配这个路径，如果有相应的servlet，就去加载这个servlet类。如果没有，刚报出404错误<br>
+加载完(也是初始化完成后),会创建一个servlet实例，并且去执行init方法,然后去执行servlet的service方法(处理请求，响应---又有学问在里面啦),最后就执行destory方法<br>
+这是servlet的使命完成了.
+&nbsp;&nbsp;&nbsp;&nbsp;然后说一下处理请求和响应,通常用doGet处理get方式的请求，用doPost处理post的请求，用request类来得到传递过来的参数request.getParameter()方法<br>
+使用response来处理响应.response.setContentType("text/html");还可以设置响应头信息.还可以设置重定向.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PrintWriter out = response.getWriter();out.println("");这个是向当前页面直接发送流的响应.
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;<h1>jsp</h1>
+现在再来讲一下jsp，顾名思义嘛，jsp就是java server page。<br>
+jsp内置对象<br>
+jsp的四种范围也不想讲了<br>
+现在讲一下jsp的跳转<br>
+jsp有这个<jsp:forwad>跳转,这个是服务器端的跳转，就是说在a页面设置了request范围的属性(注意属性与参数的区别),用上了jsp:forwad跳转到b.jsp这个属性还有存在的。<br>
+如果是a.jsp--->servlet---->b.jsp那么a.jsp中request.setAttr的属性将消失，即使servlet中也获取不到.
